@@ -6,16 +6,12 @@ const modal = document.getElementById("modal");
 
 addTaskBtn.addEventListener("click", () => {
     modal.classList.remove("hidden"); // Affiche le modal
-});
-
-addTaskBtn.addEventListener("click", () => {
-    addForm.classList.toggle("hidden"); 
+    addForm.classList.remove("hidden"); // Affiche le formulaire
 });
 
 cancelBtn.addEventListener("click", () => {
-    addForm.classList.add("hidden"); 
-    modal.classList.add("hidden"); 
-
+    addForm.classList.add("hidden"); // Cache le formulaire
+    modal.classList.add("hidden"); // Cache le modal
 });
 
 addForm.addEventListener("submit", (event) => {
@@ -27,7 +23,7 @@ addForm.addEventListener("submit", (event) => {
 
     // Crée un nouvel élément de tâche
     const taskElement = document.createElement("div");
-    taskElement.classList.add("p-4", "rounded", "border","white");
+    taskElement.classList.add("p-4", "rounded", "border", "white");
 
     if (priority.includes("P1 (en rouge)")) {
         taskElement.classList.add("bg-red-600");
@@ -43,4 +39,5 @@ addForm.addEventListener("submit", (event) => {
 
     addForm.reset();
     addForm.classList.add("hidden"); // Cache le formulaire après l'ajout
+    modal.classList.add("hidden"); // Cache le modal après l'ajout
 });
