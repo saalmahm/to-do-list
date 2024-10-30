@@ -2,6 +2,11 @@ const addTaskBtn = document.getElementById("task");
 const addForm = document.getElementById("task-form");
 const cancelBtn = document.getElementById("cancel");
 const toDoList = document.getElementById("to-do-list");
+const modal = document.getElementById("modal");
+
+addTaskBtn.addEventListener("click", () => {
+    modal.classList.remove("hidden"); // Affiche le modal
+});
 
 addTaskBtn.addEventListener("click", () => {
     addForm.classList.toggle("hidden"); 
@@ -9,6 +14,8 @@ addTaskBtn.addEventListener("click", () => {
 
 cancelBtn.addEventListener("click", () => {
     addForm.classList.add("hidden"); 
+    modal.classList.add("hidden"); 
+
 });
 
 addForm.addEventListener("submit", (event) => {
