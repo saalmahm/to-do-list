@@ -27,14 +27,14 @@ function updateTaskCounts() {
 }
 
 addForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // Empêche la soumission par défaut
+    event.preventDefault(); 
 
     const title = document.getElementById("task-title").value;
     const date = document.getElementById("task-date").value;
     const priority = document.getElementById("task-priority").value;
     const category = document.getElementById("task-category").value;
 
-    // Crée un nouvel élément de tâche
+    // Crée un nouvel élément de task
     const taskElement = document.createElement("div");
     taskElement.classList.add("p-4", "rounded", "border", "text-white");
 
@@ -45,7 +45,11 @@ addForm.addEventListener("submit", (event) => {
     } else if (priority.includes("P3 (en vert)")) {
         taskElement.classList.add("bg-green-600");
     }
-    taskElement.innerHTML = `<strong>${title}</strong><br><span>${date}</span>`;
+    taskElement.innerHTML = `<strong>${title}</strong><br><span>${date}</span>
+    <div class="flex justify-end gap-10">
+        <button class="bg-blue-600 border-white rounded px-4 py-2 text-white modify-btn ">Modifier</button>
+        <button class="bg-red-500 border-white rounded px-4 py-2 text-white delete-btn">Supprimer</button>
+    </div>`;
 
     // Ajoute la tâche dans la catégorie sélectionnée
     if (category === "to-do-list") {
@@ -56,6 +60,11 @@ addForm.addEventListener("submit", (event) => {
         doneList.appendChild(taskElement);
     }
     updateTaskCounts();
+
+    taskElement.querySelector(".delete-btn").addEventListener("click", () => {
+        taskElement.remove(); 
+        updateTaskCounts(); 
+    });
 
     addForm.reset();
     addForm.classList.add("hidden"); // Cache le formulaire après l'ajout
