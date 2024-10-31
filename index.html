@@ -18,15 +18,17 @@
 
     <section class="grid grid-cols-3 gap-8 row-gap" id="test">
         <div class="bg-white p-4 rounded shadow">
-            <h3 class="border-b-4 border-red-500 pb-2 mb-8">To Do</h3>
-            <div id="to-do-list" class="space-y-2"></div>
+            <h3 class="border-b-4 border-red-500 pb-2 mb-8">To Do<span id="to-do-count">(0)</span></h3>
+            <div id="to-do-list" class="space-y-2">
+              
+            </div>
         </div>
         <div class="bg-white p-4 rounded shadow">
-            <h3 class="border-b-4 border-blue-500 pb-2 mb-4">Doing</h3>
+            <h3 class="border-b-4 border-blue-500 pb-2 mb-4">Doing<span id="in-progress-count">(0)</span></h3>
             <div id="in-progress-list" class="space-y-2"></div>
         </div>
         <div class="bg-white p-4 rounded shadow">
-            <h3 class="border-b-4 border-green-500 pb-2 mb-4">Done</h3>
+            <h3 class="border-b-4 border-green-500 pb-2 mb-4">Done<span id="done-count">(0)</span></h3>
             <div id="done-list" class="space-y-2"></div>
         </div>
     </section>
@@ -34,20 +36,20 @@
     <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
         <form id="task-form" class="bg-gray-500 p-6 w-1/3 rounded-md mt-6 mx-auto">
             <label class="text-white mb-2">Titre de tâche</label>
-            <input type="text" id="task-title" class="w-full px-3 py-2 border border-black rounded mb-4">
+            <input type="text" id="task-title" class="w-full px-3 py-2 border border-black rounded mb-4" required>
 
             <label class="text-white mb-2">Date d’échéance</label>
-            <input type="date" id="task-date" class="w-full px-3 py-2 border border-black rounded mb-4">
+            <input type="date" id="task-date" class="w-full px-3 py-2 border border-black rounded mb-4"required>
 
             <label class="text-white mb-2">Priorité visuelle</label>
-            <select id="task-priority" class="w-full px-3 py-2 border border-black rounded mb-4">
+            <select id="task-priority" class="w-full px-3 py-2 border border-black rounded mb-4"required>
                 <option value="P1 (en rouge)">P1 (en rouge)</option>
                 <option value="P2 (en orange)">P2 (en orange)</option>
                 <option value="P3 (en vert)">P3 (en vert)</option>
             </select>
 
             <label class="text-white mb-2">Statut</label>
-            <select id="task-category" class="w-full px-3 py-2 border border-black rounded mb-4">
+            <select id="task-category" class="w-full px-3 py-2 border border-black rounded mb-4"required>
                 <option value="to-do-list">To Do</option>
                 <option value="in-progress-list">Doing</option>
                 <option value="done-list">Done</option>

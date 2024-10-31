@@ -5,6 +5,10 @@ const toDoList = document.getElementById("to-do-list");
 const modal = document.getElementById("modal");
 const inProgressList = document.getElementById("in-progress-list");
 const doneList = document.getElementById("done-list");
+// Les éléments pour les compteurs
+const toDoCount = document.getElementById("to-do-count");
+const inProgressCount = document.getElementById("in-progress-count");
+const doneCount = document.getElementById("done-count");
 
 addTaskBtn.addEventListener("click", () => {
     modal.classList.remove("hidden"); // Affiche le modal
@@ -15,6 +19,12 @@ cancelBtn.addEventListener("click", () => {
     addForm.classList.add("hidden"); // Cache le formulaire
     modal.classList.add("hidden"); // Cache le modal
 });
+
+function updateTaskCounts() {
+    toDoCount.textContent = `(${toDoList.childElementCount})`;
+    inProgressCount.textContent = `(${inProgressList.childElementCount})`;
+    doneCount.textContent = `(${doneList.childElementCount})`;
+}
 
 addForm.addEventListener("submit", (event) => {
     event.preventDefault(); // Empêche la soumission par défaut
@@ -45,6 +55,9 @@ addForm.addEventListener("submit", (event) => {
     } else if (category === "done-list") {
         doneList.appendChild(taskElement);
     }
-    addForm.reset();
+    updateTaskCounts();
 
+    addForm.reset();
+    addForm.classList.add("hidden"); // Cache le formulaire après l'ajout
+    modal.classList.add("hidden"); // Cache le modal après l'ajout
 });
