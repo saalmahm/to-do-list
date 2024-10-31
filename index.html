@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100 p-8">
-    <header class="flex justify-evenly items-center mb-20">
-        <h2 id="task" class="px-5 py-3 bg-blue-600 text-white rounded cursor-pointer">Add Task +</h2>
-        <input class="w-1/2 px-8 py-2 border border-black-300 rounded-md" type="text" placeholder="Rechercher une tâche...">
-        <h2 class="px-5 py-3 bg-blue-600 text-white rounded cursor-pointer">Add Multiple +</h2>
+    <header class="flex justify-evenly mb-20">
+        <h2 id="task" class="px-5 py-3 bg-blue-600 text-white rounded-2xl cursor-pointer">Add Task +</h2>
+        <input class="w-1/2 px-8 py-2 border border-black-300 rounded-md" type="text"
+            placeholder="Rechercher une tâche...">
+        <h2 class="px-5 py-3 bg-blue-600 text-white rounded-2xl cursor-pointer">Add Multiple +</h2>
     </header>
 
-    <section class="grid grid-cols-3 gap-8" id="test">
+    <section class="grid grid-cols-3 gap-8 row-gap" id="test">
         <div class="bg-white p-4 rounded shadow">
             <h3 class="border-b-4 border-red-500 pb-2 mb-8">To Do</h3>
             <div id="to-do-list" class="space-y-2"></div>
         </div>
         <div class="bg-white p-4 rounded shadow">
-            <h3 class="border-b-4 border-blue-500 pb-2 mb-4">In Progress</h3>
+            <h3 class="border-b-4 border-blue-500 pb-2 mb-4">Doing</h3>
             <div id="in-progress-list" class="space-y-2"></div>
         </div>
         <div class="bg-white p-4 rounded shadow">
@@ -43,13 +46,24 @@
                 <option value="P3 (en vert)">P3 (en vert)</option>
             </select>
 
+            <label class="text-white mb-2">Statut</label>
+            <select id="task-category" class="w-full px-3 py-2 border border-black rounded mb-4">
+                <option value="to-do-list">To Do</option>
+                <option value="in-progress-list">Doing</option>
+                <option value="done-list">Done</option>
+            </select>
+
+
             <div class="flex justify-between">
-                <button type="button" id="cancel" class="bg-cyan-500 border border-white rounded px-4 py-2 text-white">Annuler</button>
-                <button type="submit" class="bg-cyan-500 border border-white rounded px-4 py-2 text-white">Ajouter</button>
+                <button type="button" id="cancel"
+                    class="bg-cyan-500 border border-white rounded px-4 py-2 text-white">Annuler</button>
+                <button type="submit"
+                    class="bg-cyan-500 border border-white rounded px-4 py-2 text-white">Ajouter</button>
             </div>
         </form>
     </div>
 
     <script src="index.js"></script>
 </body>
+
 </html>
