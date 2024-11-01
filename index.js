@@ -53,6 +53,26 @@ addForm.addEventListener("submit", (event) => {
             currentTask.classList.add("bg-green-600");
         }
 
+        const currentCategory = currentTask.getAttribute("data-category");
+        if (currentCategory !== category) {
+            if (currentCategory === "to-do-list") {
+                toDoList.removeChild(currentTask);
+            } else if (currentCategory === "in-progress-list") {
+                inProgressList.removeChild(currentTask);
+            } else if (currentCategory === "done-list") {
+                doneList.removeChild(currentTask);
+            }
+
+            if (category === "to-do-list") {
+                toDoList.appendChild(currentTask);
+            } else if (category === "in-progress-list") {
+                inProgressList.appendChild(currentTask);
+            } else if (category === "done-list") {
+                doneList.appendChild(currentTask);
+            }
+            currentTask.setAttribute("data-category", category);
+        }
+
         addForm.reset(); 
         modal.classList.add("hidden"); 
         addForm.classList.add("hidden"); 
@@ -61,6 +81,7 @@ addForm.addEventListener("submit", (event) => {
     } else {
         const taskElement = document.createElement("div");
         taskElement.classList.add("p-4", "rounded", "border", "text-white");
+        taskElement.setAttribute("data-category", category); 
 
         if (priority.includes("P1 (en rouge)")) {
             taskElement.classList.add("bg-red-600");
@@ -107,3 +128,4 @@ addForm.addEventListener("submit", (event) => {
     modal.classList.add("hidden"); 
     addForm.classList.add("hidden");
 });
+
