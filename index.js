@@ -80,6 +80,7 @@ addForm.addEventListener("submit", (event) => {
         isEditing = false; 
     } else {
         const taskElement = document.createElement("div");
+        
         taskElement.classList.add("p-4", "rounded", "border", "text-white");
         taskElement.setAttribute("data-category", category); 
 
@@ -123,6 +124,7 @@ addForm.addEventListener("submit", (event) => {
             currentTask = taskElement; 
         });
     }
+
     updateTaskCounts();
     addForm.reset(); 
     modal.classList.add("hidden"); 
