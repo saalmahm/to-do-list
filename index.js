@@ -10,6 +10,9 @@
     const inProgressCount = document.getElementById("in-progress-count");
     const doneCount = document.getElementById("done-count");
 
+    // element de filtrage 
+    const filterPriority = document.getElementById("filter-priority");
+
     //pour la fonctionalite de modification
     let isEditing = false; 
     let currentTask = null; 
@@ -32,6 +35,24 @@
         doneCount.textContent = `(${doneList.childElementCount})`;
     }
 
+    filterPriority.addEventListener("change", () => {
+        const selectedPriority = filterPriority.value;
+    
+        [toDoList, inProgressList, doneList].forEach(list => {
+            Array.from(list.children).forEach(task => {
+                const taskPriority = task.classList.contains("bg-red-600") ? "P1 (red)" :
+                    task.classList.contains("bg-orange-600") ? "P2 (orange)" :
+                    task.classList.contains("bg-green-600") ? "P3 (green)" : "";
+    
+                if (selectedPriority === "" || taskPriority === selectedPriority) {
+                    task.style.display = "block";
+                } else {
+                    task.style.display = "none";
+                }
+            });
+        });
+    });
+    
     addForm.addEventListener("submit", (event) => {
         event.preventDefault(); 
 
