@@ -9,25 +9,31 @@
 </head>
 
 <body class="bg-gray-100 p-8">
-    <header class="flex justify-evenly mb-20">
+    <header class="flex justify-between items-center mb-10">
         <h2 id="task" class="px-5 py-3 bg-blue-600 text-white rounded-2xl cursor-pointer">Add Task +</h2>
-        <input  id="search-input" class="w-1/2 px-8 py-2 border border-black-300 rounded-md" type="text"
-            placeholder="Rechercher une tâche par son titre">
-        <h2 class="px-5 py-3 bg-blue-600 text-white rounded-2xl cursor-pointer">Add Multiple +</h2>
+        
+        <div class="flex space-x-4">
+            <select id="filter-priority" class="px-4 py-2 border border-gray-300 rounded-md">
+                <option value="">Filtrer par priorité</option>
+                <option value="P1 (en rouge)">P1 (en rouge)</option>
+                <option value="P2 (en orange)">P2 (en orange)</option>
+                <option value="P3 (en vert)">P3 (en vert)</option>
+            </select>
+            <button id="sort-date" class="px-4 py-2 bg-green-500 text-white rounded-md">Trier par date</button>
+        </div>
     </header>
 
     <section class="grid grid-cols-3 gap-8 row-gap" id="test">
         <div class="bg-white p-4 rounded shadow">
-            <h3 class="border-b-4 border-red-500 pb-2 mb-8">To Do<span id="to-do-count">(0)</span></h3>
-            <div id="to-do-list" class="space-y-2 ">
-     </div>
+            <h3 class="border-b-4 border-red-500 pb-2 mb-8">À faire<span id="to-do-count">(0)</span></h3>
+            <div id="to-do-list" class="space-y-2"></div>
         </div>
         <div class="bg-white p-4 rounded shadow">
-            <h3 class="border-b-4 border-blue-500 pb-2 mb-4">Doing<span id="in-progress-count">(0)</span></h3>
+            <h3 class="border-b-4 border-blue-500 pb-2 mb-4">In progress<span id="in-progress-count">(0)</span></h3>
             <div id="in-progress-list" class="space-y-2"></div>
         </div>
         <div class="bg-white p-4 rounded shadow">
-            <h3 class="border-b-4 border-green-500 pb-2 mb-4">Done<span id="done-count">(0)</span></h3>
+            <h3 class="border-b-4 border-green-500 pb-2 mb-4">Terminé<span id="done-count">(0)</span></h3>
             <div id="done-list" class="space-y-2"></div>
         </div>
     </section>
@@ -38,33 +44,29 @@
             <input type="text" id="task-title" class="w-full px-3 py-2 border border-black rounded mb-4" required>
 
             <label class="text-white mb-2">Date d’échéance</label>
-            <input type="date" id="task-date" class="w-full px-3 py-2 border border-black rounded mb-4"required>
+            <input type="date" id="task-date" class="w-full px-3 py-2 border border-black rounded mb-4" required>
 
             <label class="text-white mb-2">Priorité visuelle</label>
-            <select id="task-priority" class="w-full px-3 py-2 border border-black rounded mb-4"required>
+            <select id="task-priority" class="w-full px-3 py-2 border border-black rounded mb-4" required>
                 <option value="P1 (en rouge)">P1 (en rouge)</option>
                 <option value="P2 (en orange)">P2 (en orange)</option>
                 <option value="P3 (en vert)">P3 (en vert)</option>
             </select>
 
             <label class="text-white mb-2">Statut</label>
-            <select id="task-category" class="w-full px-3 py-2 border border-black rounded mb-4"required>
+            <select id="task-category" class="w-full px-3 py-2 border border-black rounded mb-4" required>
                 <option value="to-do-list">To Do</option>
                 <option value="in-progress-list">Doing</option>
                 <option value="done-list">Done</option>
             </select>
 
-
             <div class="flex justify-between">
-                <button type="button" id="cancel"
-                    class="bg-cyan-500 border border-white rounded px-4 py-2 text-white">Annuler</button>
-                <button type="submit"
-                    class="bg-cyan-500 border border-white rounded px-4 py-2 text-white">Ajouter</button>
+                <button type="button" id="cancel" class="bg-cyan-500 border border-white rounded px-4 py-2 text-white">Annuler</button>
+                <button type="submit" class="bg-cyan-500 border border-white rounded px-4 py-2 text-white">Ajouter</button>
             </div>
         </form>
     </div>
 
     <script src="index.js"></script>
 </body>
-
 </html>
