@@ -13,6 +13,9 @@
     // element de filtrage 
     const filterPriority = document.getElementById("filter-priority");
 
+    // Sélection du bouton de tri par date
+const sortDateBtn = document.getElementById("sort-date");
+
     //pour la fonctionalite de modification
     let isEditing = false; 
     let currentTask = null; 
@@ -53,6 +56,20 @@
         });
     });
     
+    sortDateBtn.addEventListener("click", () => {
+        [toDoList, inProgressList, doneList].forEach(list => {
+            const tasksArray = Array.from(list.children);
+    
+            tasksArray.sort((a, b) => {
+                const dateA = new Date(a.querySelector("span").textContent);
+                const dateB = new Date(b.querySelector("span").textContent);
+                return dateA - dateB; 
+            });
+    
+            tasksArray.forEach(task => list.appendChild(task));
+        });
+    });
+
     addForm.addEventListener("submit", (event) => {
         event.preventDefault(); 
 
