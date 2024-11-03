@@ -1,6 +1,6 @@
-# MyTasksManager
+# TaskFlow
 
-MyTasksManager is a web-based application designed to help users effectively manage their tasks. With an intuitive interface, it allows users to organize tasks by priority and status, ensuring that nothing falls through the cracks.
+TaskFlow is a web-based application designed to help users effectively manage their tasks. With an intuitive interface, it allows users to organize tasks by priority and status, ensuring that nothing falls through the cracks.
 
 ## Features
 
